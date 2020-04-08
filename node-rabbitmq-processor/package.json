@@ -1,0 +1,11 @@
+{
+  "name": "node-rabbitmq-processor",
+  "version": "1.0.0",
+  "description": "A simple Node service that reads data from a RabbitMQ queue, processes it, and pushes the transformed data to another queue.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ishani Ray, Rohit Singh, Shruti Singhania, Lakshmi Kumari Shaw",
+  "license": "ISC"
+}
