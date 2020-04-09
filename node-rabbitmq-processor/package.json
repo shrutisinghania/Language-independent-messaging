@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ishani Ray, Rohit Singh, Shruti Singhania, Lakshmi Kumari Shaw",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.5"
+  }
 }
