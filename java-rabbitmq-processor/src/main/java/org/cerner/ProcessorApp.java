@@ -10,14 +10,17 @@ import org.springframework.integration.annotation.Transformer;
 @SpringBootApplication
 public class ProcessorApp {
 
-    @Transformer(inputChannel = Processor.INPUT, outputChannel = Processor.OUTPUT)
-    public Object transform(String name) {
-    	System.out.println("Input: " + name);
-    	System.out.println("Output: " + "Hello, " + name + "!");
-    	return "Hello, " + name + "!";
-    }
+	@Transformer(inputChannel = Processor.INPUT, outputChannel = Processor.OUTPUT)
+	public Object transform(String name) {
+		String greetName = "Hello, " + name + "!";
 
-    public static void main(String[] args) {
-        SpringApplication.run(ProcessorApp.class, args);
-    }
+		System.out.println("Input: " + name);
+		System.out.println("Output: " + greetName);
+
+		return greetName;
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProcessorApp.class, args);
+	}
 }
