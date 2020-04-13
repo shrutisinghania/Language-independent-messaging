@@ -1,0 +1,54 @@
+// dataflow 1.2.0.RELEASE log opened at 2020-04-09 19:29:49
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 12:07:38
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 12:09:51
+app register --name java-source --type source --uri maven://org.cerner:java-rabbitmq-source:0.0.1
+app register --name java-processor --type processor --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+// [failed] stream create --name devcon-dataflow --definition 'java-source | java-processor'
+// [failed] stream create --name devcon-dataflow --definition 'java-source | | java-processor'
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 12:19:55
+app register --name java-source --type source --uri maven://org.cerner:java-rabbitmq-source:0.0.1
+app register --name java-processor --type sink --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+stream create --name devcon-dataflow --definition 'java-source | java-processor'
+stream deploy --name devcon-dataflow
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 12:34:15
+app register --name java-source --type source --uri maven://org.cerner:java-rabbitmq-source:0.0.1
+app register --name java-processor --type sink --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+stream create --name devcon-dataflow --definition 'java-source | java-processor'
+stream deploy --name devcon-dataflow
+exit
+// dataflow 1.2.0.RELEASE log closed at 2020-04-10 12:44:13
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 12:44:21
+// [failed] stream deploy --name devcon-dataflow
+help
+stream destroy --name devcon-dataflow
+// [failed] stream deploy --name devcon-dataflow
+stream create --name devcon-dataflow --definition 'java-source | java-processor'
+stream deploy --name devcon-dataflow
+stream destroy --name devcon-dataflow
+// [failed] stream deploy --name devcon-dataflow
+stream create --name devcon-dataflow --definition 'java-source | java-processor'
+stream deploy --name devcon-dataflow
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 13:19:55
+app register --name java-source --type source --uri maven://org.cerner:java-rabbitmq-source:0.0.1
+app register --name java-processor --type sink --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+stream create --name devcon-dataflow --definition 'java-source | java-processor'
+app register --name java-processor --type processor --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+// [failed] stream create --name devcon-dataflow --definition 'java-source | java-processor'
+app register --name java-processor --type sink --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+stream create --name devcon-dataflow --definition 'java-source | java-processor'
+app register --name java-processor --type processor --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+app register --name java-processor --type sink --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+app register --name java-processor --type app --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+app register --name java-processor --type task --uri maven://org.cerner:java-rabbitmq-processor:0.0.1
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 14:36:24
+// dataflow 1.2.0.RELEASE log opened at 2020-04-10 17:49:46
+app register --name time-source --type source --uri maven://org.ilrs:time-source:0.0.1-SNAPSHOT
+app register --name time-source --type app --uri maven://org.ilrs:time-source:0.0.1-SNAPSHOT
+app register --name time-processor --type app --uri maven://org.ilrs:time-processor:0.0.1-SNAPSHOT
+app register --name log-sink --type app --uri maven://org.ilrs:log-sink:0.0.1-SNAPSHOT
+// [failed] stream create --name time-to-log --definition 'time-source | time-processor | log-sink'
+stream create --name time-to-log --definition 'time-source || time-processor || log-sink'
+app register --name time-source --type app --uri maven://org.ilrs:time-source:0.0.1-SNAPSHOT
+app register --name time-processor --type app --uri maven://org.ilrs:time-processor:0.0.1-SNAPSHOT
+app register --name log-sink --type app --uri maven://org.ilrs:log-sink:0.0.1-SNAPSHOT
+stream create --name time-to-log --definition 'time-source || time-processor || log-sink'

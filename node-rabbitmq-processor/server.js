@@ -12,10 +12,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
         }
 
         var processorQueue = 'processor';
-        channel.assertQueue(processorQueue, {
-            durable: false
-        });
-
+        
         channel.consume(processorQueue, function(msg) {
             console.log(" [x] Received %s", msg.content.toString());
             var consumerQueue = 'consumer';

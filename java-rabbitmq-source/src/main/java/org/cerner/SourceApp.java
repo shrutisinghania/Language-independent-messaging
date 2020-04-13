@@ -2,6 +2,8 @@ package org.cerner;
 
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +18,8 @@ import org.springframework.integration.support.MessageBuilder;
 @EnableBinding(Source.class)
 @SpringBootApplication
 public class SourceApp {
+    private static Logger logger = LoggerFactory.getLogger(SourceApp.class);
+
 	private static final String[] NAMES = { "Shruti", "Lokkhi", "Ishani", "Rohit" };
 
 	@Autowired
@@ -30,7 +34,8 @@ public class SourceApp {
 	@InboundChannelAdapter(value = Source.OUTPUT, poller = @Poller(fixedDelay = "10000", maxMessagesPerPoll = "1"))
 	public MessageSource<String> timeMessageSource() {
 		String name = NAMES[random.nextInt(4)];
-		System.out.println("Sending: " + name);
+		//String name = "Shruti";
+		logger.info("Sending: " + name);
 		return () -> MessageBuilder.withPayload(name).build();
 	}
 
